@@ -18,9 +18,9 @@ export const CountryFlagValidator = ({ password }: Props) => {
 
     return (
 
-        <div className="max-w-md mx-auto p-6 bg-white rounded-2xl shadow-md text-center space-y-4">
+        <div className="max-w-md mx-auto p-6 rounded-2xl shadow-lg backdrop-blur-md border border-gray-300 dark:border-white/20 text-center space-y-4">
 
-            <p className="text-lg font-semibold text-gray-800">
+            <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
                 Do hesla musíte zahrnout kód této země:
             </p>
 
@@ -28,15 +28,17 @@ export const CountryFlagValidator = ({ password }: Props) => {
                 <img
                     src={`https://countryflagsapi.netlify.app/flag/${selectedCountry}.svg`}
                     alt="flag"
-                    className="w-24 h-16 object-cover rounded-lg border"
+                    className="w-24 h-16 object-cover rounded-md border border-gray-300"
                 />
             </div>
 
-            <div className={`p-3 rounded-lg font-medium ${
-                isCorrect
-                    ? "bg-green-100 text-green-700"
-                    : "bg-red-100 text-red-700"
-            }`}>
+            <div
+                className={`p-3 rounded-lg font-medium transition-all ${
+                    isCorrect
+                        ? "bg-green-100 text-green-700 dark:bg-green-500/20 dark:text-green-300"
+                        : "bg-red-100 text-red-700 dark:bg-red-500/20 dark:text-red-300"
+                }`}
+            >
                 {isCorrect ? "✅ Kód nalezen" : "❌ Kód v hesle chybí"}
             </div>
 
